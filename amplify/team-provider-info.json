@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bandsocial-staging-194219-authRole",
+      "UnauthRoleArn": "arn:aws:iam::906491537020:role/amplify-bandsocial-staging-194219-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::906491537020:role/amplify-bandsocial-staging-194219-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-bandsocial-staging-194219-deployment",
+      "UnauthRoleName": "amplify-bandsocial-staging-194219-unauthRole",
+      "StackName": "amplify-bandsocial-staging-194219",
+      "StackId": "arn:aws:cloudformation:us-east-1:906491537020:stack/amplify-bandsocial-staging-194219/3884ede0-129b-11ed-80fe-1264c2504d91",
+      "AmplifyAppId": "d230yf9gqtsp79"
+    },
+    "categories": {
+      "auth": {
+        "BandSocial": {}
+      }
+    }
+  }
+}
