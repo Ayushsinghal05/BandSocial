@@ -5,14 +5,19 @@ import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
 import {useForm} from 'react-hook-form'
+import {Auth} from 'aws-amplify';
 const NewPasswordScreen = () => {
     const {control, handleSubmit} = useForm();
 
     const navigation = useNavigation();
 
-    const onSubmitPressed = data => {
-        console.warn(data)
-        navigation.navigate('Home')
+    const onSubmitPressed = async data => {
+        try{
+            await Auth.forgotPasswordSubmit(data.username, data.code, data.password)
+            navigation.navigate('SignIn')
+        }catch(e) {
+            Alert.alert('Oops', e.message)
+        }
     }
     const onSignInPress= () => {
         navigation.navigate('SignIn')
@@ -22,8 +27,9 @@ const NewPasswordScreen = () => {
         <ScrollView showsVerticalScrollIndicator = {false}>
             <View style={styles.root}>
                 <Text style={styles.title}>Reset  your password</Text>
+                <CustomInput placeholder="Username" name = "username" control = {control} rules = {{required: 'Username is required'}} />
                 <CustomInput placeholder="Code" name = "code" control = {control} rules = {{required: 'Code is required'}} />
-                <CustomInput placeholder="Enter your new password"  name = "password" control = {control} rules = {{required: 'Code is required'}}/>
+                <CustomInput placeholder="Enter your new password"  name = "password" control = {control} rules = {{required: 'Password is required'}} secureTextEntry = {true}/>
                 <CustomButton text="Submit" onPress={handleSubmit(onSubmitPressed)} />
 
 

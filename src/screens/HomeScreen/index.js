@@ -1,12 +1,23 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useMemo} from "react";
+import { Text } from "react-native";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
-const Index = () => {
+export default function Home() {
+  console.log('=======>', process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY)
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyBKeXQqFHz-K_vrpf_pXpgbQAM8y0w8GrY",
+  });
+
+  if (!isLoaded) return <Text>Loading...</Text>;
+  return <Map/>;
+}
+
+function Map() {
+  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
+
   return (
-    <View>
-      <Text style= {{fontSize: 24, alignSelf: 'center'}}>Home, sweet home</Text>
-    </View>
+    <GoogleMap zoom={10} center={center} mapContainerClassName="map-container" >
+      <Marker position={center}  />
+    </GoogleMap>
   );
-};
-
-export default Index;
+}
