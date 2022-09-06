@@ -9,7 +9,7 @@ import ConfirmEmailScreen from '../screens/ConfirmEmailScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import NewPasswordScreen from '../screens/NewPasswordScreen';
 import Instrument from '../components/Instrument';
-import Home from '../screens/HomeScreen';
+import InstrumentPicker from '../screens/HomeScreen';
 import {Auth, Hub, Analytics} from 'aws-amplify'
 Analytics.configure({ disabled: true })
 
@@ -47,11 +47,12 @@ const Navigation = () => {
       </View>
     )
   }*/
+  console.log('=====>',user)
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {user ? (
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Home" component={InstrumentPicker} />
         ) : (
           <>
             <Stack.Screen name="SignIn" component={SignInScreen} />
@@ -59,6 +60,7 @@ const Navigation = () => {
             <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
             <Stack.Screen name="NewPassword" component={NewPasswordScreen} />
             <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen}/>
+            <Stack.Screen name = "Instrument" component={Instrument}/> 
 
           </>
 

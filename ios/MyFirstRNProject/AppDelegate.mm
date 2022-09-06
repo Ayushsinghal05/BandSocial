@@ -16,8 +16,10 @@
 #import <React/RCTLinkingManager.h>
 #import <react/config/ReactNativeConfig.h>
 #import <React/RCTLinkingManager.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 - (BOOL)application:(UIApplication *)application
+  [GMSServices provideAPIKey:@"AIzaSyBKeXQqFHz-K_vrpf_pXpgbQAM8y0w8GrY"]; // add this line using the api key obtained from Google Console
    openURL:(NSURL *)url
    options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {

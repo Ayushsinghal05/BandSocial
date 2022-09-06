@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Slider from '@react-native-community/slider';
-//import Header from './component/header.js';
+//import Header from './screens/header.js';
 
 
 const Instrument = () => {
@@ -30,7 +30,7 @@ const Instrument = () => {
 
   return(
     <View style={styles.container} >
-      <Header title="Instrument Selection" />
+      {/* <Header title="Instrument Selection" /> */}
       <Text style={styles.introText} >Let's get started! From the options belowed, select the instruments you are proficient in, followed by your level of proficiency. If you do not find your instrument listed, use the text input given below. </Text>
       <DropDownPicker style={styles.picker}
         placeholder="Select your first choice of instrument."
