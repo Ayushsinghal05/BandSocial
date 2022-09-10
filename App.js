@@ -15,7 +15,9 @@ import {
 import Navigation from './src/navigation';
 import {Amplify} from 'aws-amplify';
 import config from './src/aws-exports';
+import {enableLatestRenderer} from 'react-native-maps';
 
+enableLatestRenderer();
 
 Amplify.configure(config)
 

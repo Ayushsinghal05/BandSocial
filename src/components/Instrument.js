@@ -1,83 +1,146 @@
+// import React, {Component} from 'react';
+// import {
+//   StyleSheet,
+//   Text,
+//   View,
+//   TextInput,
+//   TouchableOpacity,
+//   StatusBar
+// } from 'react-native'
 
-import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
-import Slider from '@react-native-community/slider';
-//import Header from './screens/header.js';
+// import MapView from 'react-native-maps';
 
+// class DetailsScreen extends Component {
+//   static navigationOptions = {
+//     title: 'My App',
+//     headerRIght: <View/>
+//   }
+// };
+// export default () => (
+//   <View style={styles.container}>
+//     <MapView
+//       style={styles.map}
+//       region={{
+//         latitude: 37.78825,
+//         longitude: -122.4324,
+//         latitudeDelta: 0.015,
+//         longitudeDelta: 0.0121,
+//       }}
+//     >
+//     </MapView>
+//   </View>
+// );
 
-const Instrument = () => {
+// const styles = StyleSheet.create({
+//  container: {
+//    ...StyleSheet.absoluteFillObject,
+//    height: 500,
+//    width: 400,
+//    justifyContent: 'flex-end',
+//    alignItems: 'center',
+//  },
+//  map: {
+//    ...StyleSheet.absoluteFillObject,
+//  },
+// });
+// import React, {Component} from 'react';
+// import {
+//   StyleSheet,
+//   Text,
+//   View,
+//   TextInput,
+//   TouchableOpacity,
+//   StatusBar,
+//   Dimensions,
+//   ScrollView,
 
-  const [open2, setOpen2] = useState(false);
-  const [open1, setOpen1] = useState(false);
-  const [value2, setValue2] = useState(null);
-  const [value1, setValue1] = useState(null);
-  const [items, setItems] = useState([
-    {label: 'Piano', value: 'piano'},
-    {label: 'Violin', value: 'violin'},
-    {label: 'Guitar', value: 'guitar'},
-    {label: "Trumpet", value: 'trumpet'},
-    {label: "Viola", value: "viola"},
-  ]);
+// } from 'react-native'
+// import MapView from 'react-native-maps';
 
-  return(
-    <View style={styles.container} >
-      {/* <Header title="Instrument Selection" /> */}
-      <Text style={styles.introText} >Let's get started! From the options belowed, select the instruments you are proficient in, followed by your level of proficiency. If you do not find your instrument listed, use the text input given below. </Text>
-      <DropDownPicker style={styles.picker}
-        placeholder="Select your first choice of instrument."
-        open={open1}
-        value={value1}
-        items={items}
-        setOpen={setOpen1}
-        setValue={setValue1}
-        setItems={setItems}
-      />
-      <Slider
-        style={{width: 200, height: 40}}
-        minimumValue={0}
-        maximumValue={1}
-        minimumTrackTintColor="#FFFFFF"
-        maximumTrackTintColor="#000000"
-      />
-      <Text style={styles.introText} ></Text>
-      <DropDownPicker style={styles.picker}
-        placeholder="Select your second choice of instrument."
-        open={open2}
-        value={value2}
-        items={items}
-        setOpen={setOpen2}
-        setValue={setValue2}
-        setItems={setItems}
-      />
-    </View>
-    
-  )
+// const { width, height } = Dimensions.get('window');
+// const SCREEN_WIDTH = width;
+// const ASPECT_RATIO = width / height;
+// const LATITUDE = 37.78825;
+// const LONGITUDE = -122.4324;
+// const LATITUDE_DELTA = 0.0922;
+// const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
+// export default class Analysis extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       region: {
+//         latitude: LATITUDE,
+//         longitude: LONGITUDE,
+//         latitudeDelta: LATITUDE_DELTA,
+//         longitudeDelta: LONGITUDE_DELTA,
+//       },
+//     };
+//   }
+
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <ScrollView
+//           style={StyleSheet.absoluteFill}
+//           contentContainerStyle={styles.scrollview}
+//         >
+//           <MapView
+//             provider={this.props.provider}
+//             style={styles.map}
+//             scrollEnabled={true}
+//             zoomEnabled={true}
+//             pitchEnabled={true}
+//             rotateEnabled={true}
+//             initialRegion={this.state.region}
+//           >
+//             <MapView.Marker
+//               title="This is a title"
+//               description="This is a description"
+//               coordinate={this.state.region}
+//             />
+//           </MapView>
+//         </ScrollView>
+//       </View>
+//     );
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     ...StyleSheet.absoluteFillObject,
+//     justifyContent: 'flex-end',
+//     alignItems: 'center',
+//   },
+//   scrollview: {
+//     alignItems: 'center',
+//   },
+//   map: {
+//     width: SCREEN_WIDTH,
+//     height: 250,
+//   },
+// });
+import React, { Component } from 'react';
+import { View, AppRegistry } from 'react-native';
+//import { GradientView } from '../../Common'
+import MapView from 'react-native-maps';
+
+export default class Instrument extends Component {
+  render() {
+    return (
+      <View style={{ position: 'relative', height: '100%'}}>
+        <MapView
+          style={{ left:0, right: 0, top:0, bottom: 0, position: 'absolute' }}
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      </View>
+
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 0,
-  },
-  introText: {
-    paddingTop: 12,
-    fontSize: 20,
-    paddingBottom: 15,
-    paddingLeft: 5,
-  },
-  picker: {
-    paddingLeft: 5,
-    paddingRight: 5,
-  },
-});
-
-export default Instrument;

@@ -52,7 +52,10 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {user ? (
+          <>
           <Stack.Screen name="Home" component={InstrumentPicker} />
+          <Stack.Screen name = "Instrument" component={Instrument}/> 
+          </>
         ) : (
           <>
             <Stack.Screen name="SignIn" component={SignInScreen} />
@@ -60,7 +63,7 @@ const Navigation = () => {
             <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
             <Stack.Screen name="NewPassword" component={NewPasswordScreen} />
             <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen}/>
-            <Stack.Screen name = "Instrument" component={Instrument}/> 
+            
 
           </>
 
